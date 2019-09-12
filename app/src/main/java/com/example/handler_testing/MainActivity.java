@@ -57,12 +57,15 @@ public class MainActivity extends AppCompatActivity {
                 handler_.obtainMessage(MSG_WORK_THREAD_INITIALIZED, info).sendToTarget();
             }
         });
+        workThread_.start();
 
         sendTestMessageButton_ = (Button) findViewById(R.id.send_msg_test);
         sendTestMessageButton_.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mockPlaybackQueue_.sendTestMessage();
+                if (workThreadInitialized_) {
+                    mockPlaybackQueue_.sendTestMessage();
+                }
             }
         });
 

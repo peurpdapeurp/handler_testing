@@ -23,6 +23,7 @@ public class MockPlaybackQueue {
                 switch (msg.what) {
                     case MSG_TEST: {
                         Log.d(TAG, "moduleMessageHandler_ got MSG_TEST");
+                        break;
                     }
                     default: {
                         throw new IllegalStateException("unexpected msg.what " + msg.what);
